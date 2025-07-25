@@ -8,6 +8,13 @@ require('./db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const cors = require('cors');
+app.use(cors({
+  origin: 'https://alittlefloweracademy.com', // your Hostinger domain
+  methods: ['POST'],
+}));
+
+
 
 // MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,17 +34,17 @@ app.post('/login', async (req, res) => {
     const admin = await Admin.findOne({ username });
 
     if (!admin) {
-      return res.send('<h2>User not found. <a href="/">Try again</a></h2>');
+      return res.status(401).json({ success: false, message: 'User not found' });
     }
 
     if (admin.password === password) {
-        return res.redirect('https://alittlefloweracademy.com/admin.html');
+      return res.json({ success: true }); // ✅ success response
     } else {
-      return res.send('<h2>Wrong password. <a href="/">Try again</a></h2>');
+      return res.status(401).json({ success: false, message: 'Wrong password' });
     }
   } catch (err) {
     console.error('Login error:', err);
-    return res.status(500).send('<h2>Server Error</h2>');
+    return res.status(500).json({ success: false, message: 'Server Error' });
   }
 });
 
