@@ -3,7 +3,7 @@ require('dotenv').config(); // Load .env file
 const mongoose = require("mongoose");
 const Admin = require("./models/Admin");
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
