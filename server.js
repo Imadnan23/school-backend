@@ -31,7 +31,7 @@ app.post('/login', async (req, res) => {
     }
 
     if (admin.password === password) {
-      return res.redirect('/admin.html');
+        return res.redirect('https://alittlefloweracademy.com/admin.html');
     } else {
       return res.send('<h2>Wrong password. <a href="/">Try again</a></h2>');
     }
