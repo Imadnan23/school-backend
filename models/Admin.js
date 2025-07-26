@@ -6,4 +6,5 @@ const adminSchema = new mongoose.Schema({
   password: String
 });
 
-module.exports = mongoose.model("Admin", adminSchema);
+// 'Admin' is the model name, 'admins' is the exact collection name in MongoDB
+module.exports = mongoose.model("Admin", adminSchema, "admins");
