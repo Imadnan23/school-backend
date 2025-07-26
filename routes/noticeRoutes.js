@@ -1,7 +1,7 @@
 //backend/routes/noticeRoutes
 const express = require("express");
 const router = express.Router();
-const Notice = require("../models/notice");
+const Notice = require("../models/Notice");
 
 
 // Add new notice

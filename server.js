@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Models
 const Admin = require("./models/Admin");
-const Notice = require("./models/notice");
+const Notice = require("./models/Notice");
 
 // Routes
 const noticeRoutes = require("./routes/noticeRoutes");
